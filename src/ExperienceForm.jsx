@@ -143,7 +143,6 @@ const ExperienceForm = () => {
                   [e.target.name]: e.target.value,
                 })
               }
-              id={style.locationInput}
               placeholder="Enter location here"
             />
           </label>

@@ -45,9 +45,15 @@
 }
 
 /* field titles */
-.formFields h2 {
+.experienceForm h2 {
   color: var(--text-color);
   font-size: 1.125rem;
+}
+
+/* field instructions */
+.experienceForm p {
+  color: var(--text-color);
+  font-size: 0.9rem;
 }
 
 .formFields input {
@@ -70,7 +76,7 @@
   width: 100%;
 }
 
-#locationInput {
+#locationLabel input {
   width: 97.1%;
 }
 
@@ -78,31 +84,4 @@
 .roleTitleContainer, .formContainer {
     margin-right: 27px;
     margin-left: 27px;
-}
-
-.primaryInfo {
-  /* border: 1px solid blue; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.formField {
-  /* border: 1px solid pink; */
-  /* width: 49%; */
-}
-
-.formInput {
-  font-family: ABeeZee;
-  border-radius: 10px;
-  border: 1.5px solid var(--gray);
-
-  width: 336.922px;
-  height: 50px;
-  flex-shrink: 0;
-}
-
-#locationField {
-    color: green;
-    font-family: 'Times New Roman', Times, serif;
 }
