@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import style from "./ExperienceForm.module.css";
 import Bullet from "./Bullet";
 
-const ExperienceForm = () => {
-  const [experienceData, setExperienceData] = useState({
-    role: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    bulletPoints: ["this is a bullet point"],
-  });
+const ExperienceForm = ({experienceData, setExperienceData}) => {
   // list of bullet points to pass into Bullet component
   const [bulletPoints, setBulletPoints] = useState([
     {

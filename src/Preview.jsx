@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./Preview.module.css";
 
-const Preview = () => {
+const Preview = ({ experienceData }) => {
+  let startDate = new Date(experienceData.startDate);
+  let endDate = new Date(experienceData.endDate);
+  let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
+  startDate = `${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
+  endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
   return (
     <div className={style.preview}>
       <h1>Experience</h1>
       <p>
-        <span>Role</span>
-        <span>Date</span>
+        <div>
+          {experienceData.role === '' ? <span>Role</span> : <span>{experienceData.role}</span>}
+        </div>
+        <div>
+          {experienceData.startDate === '' ? <span>Start Date</span> : <span>{startDate}</span>} - {experienceData.endDate === '' ? <span>End Date</span> : <span>{endDate}</span>}
+        </div>
       </p>
       <p>
-        <span>Company</span>
-        <span>Location</span>
+      <div>
+        {experienceData.company === '' ? <span>Company</span> : <span>{experienceData.company}</span>}
+      </div>
+      <div>
+        {experienceData.location === '' ? <span>Location</span> : <span>{experienceData.location}</span>}
+      </div>
       </p>
       <ul>
         <li>Your first bullet point.</li>

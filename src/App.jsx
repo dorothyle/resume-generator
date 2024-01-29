@@ -1,19 +1,22 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import ExperienceForm from "./ExperienceForm";
-import Bullet from "./Bullet";
 import Preview from "./Preview";
-import './App.css'
+import "./App.css";
 
 function App() {
+  const [experienceData, setExperienceData] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    bulletPoints: ["this is a bullet point"],
+  });
   return (
-    <>
-      <div className='app-container'>
-        <Preview />
-        <ExperienceForm />
-      </div>
-    </>
+    <div className="app-container">
+      <Preview experienceData={experienceData} />
+      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/>
+    </div>
   );
 }
 
