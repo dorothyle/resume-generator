@@ -1,0 +1,32 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+.bullet {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 45rem;
+  margin: 0.81rem;
+}
+
+.bullet span:not(:first-child) {
+  cursor: pointer;
+}
+
+.bullet input {
+  border-radius: 0.625rem;
+  border: 1.5px solid var(--gray);
+  background: #fff;
+  width: 37.59838rem;
+  height: 2.8125rem;
+  flex-shrink: 0;
+
+  color: var(--text-color);
+  font-family: ABeeZee;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+}
