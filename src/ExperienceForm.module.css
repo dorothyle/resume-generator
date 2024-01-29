@@ -19,8 +19,8 @@
 }
 
 .roleTitle, .formFields, .bulletsContainer {
-  margin-right: 27px;
-  margin-left: 27px;
+  margin-right: 1.8rem;
+  margin-left: 1.8rem;
 }
 
 .roleTitle {
@@ -85,10 +85,4 @@
 
 #locationLabel input {
   width: 97.1%;
-}
-
-/* no classes */
-.roleTitleContainer, .formContainer {
-    margin-right: 27px;
-    margin-left: 27px;
 }
