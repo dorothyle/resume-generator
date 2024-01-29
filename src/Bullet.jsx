@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./Bullet.module.css";
 
-const Bullet = () => {
+const Bullet = ({bulletList, setBulletList}) => {
   const bulletPoint = "material-symbols:circle-outline";
   const penIcon = "fluent:pen-sparkle-32-regular";
   const trashIcon = "ant-design:delete-outlined";
+
+  const [newBullet, setNewBullet] = useState({
+    currentBullet: "",
+    versionHistory: [""],
+  });
+
+  // creating/updating bullet data
+  const handleChange = (e) => {
+    setNewBullet({
+      ...newBullet,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className={style.bullet}>
       <span>
@@ -14,7 +28,12 @@ const Bullet = () => {
           style={{ color: "#414141", width: "0.75rem", height: "0.75rem" }}
         ></Icon>
       </span>
-      <input type="text" />
+      <input
+        type="text"
+        onChange={handleChange} 
+        name="currentBullet"
+        value={newBullet.currentBullet}
+      />
       <span>
         <Icon
           icon={penIcon}

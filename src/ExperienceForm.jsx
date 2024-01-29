@@ -11,12 +11,14 @@ const ExperienceForm = () => {
     location: "",
     bulletPoints: ["this is a bullet point"],
   });
+  // list of bullet points to pass into Bullet component
   const [bulletPoints, setBulletPoints] = useState([
     {
       currentBullet: "my first bullet point",
       versionHistory: [],
     },
   ]);
+  // for Add Bullet button
   const [bulletInputs, setBulletInputs] = useState([]);
 
   const onAddBulletClick = (event) => {
