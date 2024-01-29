@@ -1,8 +1,7 @@
 @import "colors.css";
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
 
-.experienceForm,
-.formInput {
+.experienceForm {
   color: var(--text-color);
   font-family: ABeeZee;
   font-size: 18px;
@@ -11,14 +10,71 @@
   line-height: normal;
 }
 
+.symbol {
+  color: var(--dark-purple)
+}
+
 .experienceForm {
   /* width: 39%; */
   width: 765px;
-
   border-radius: 15px;
   border: 2px solid var(--gray);
 }
 
+.roleTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.roleTitle div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roleTitle h1 {
+  font-size: 1.5rem;
+}
+
+/* form itself */
+.formFields form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* field titles */
+.formFields h2 {
+  color: var(--text-color);
+  font-size: 1.125rem;
+}
+
+.formFields input {
+  font-family: ABeeZee;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--text-color);
+  border-radius: 10px;
+  border: 1.5px solid var(--gray);
+  width: 20rem;
+  height: 2.8125rem;
+  flex-shrink: 0;
+}
+
+#locationLabel {
+  width: 100%;
+}
+
+#locationInput {
+  width: 97.1%;
+}
+
+/* no classes */
 .roleTitleContainer, .formContainer {
     margin-right: 27px;
     margin-left: 27px;
