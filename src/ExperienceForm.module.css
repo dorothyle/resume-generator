@@ -1,0 +1,52 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+.experienceForm,
+.formInput {
+  color: var(--text-color);
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.experienceForm {
+  /* width: 39%; */
+  width: 765px;
+
+  border-radius: 15px;
+  border: 2px solid var(--gray);
+}
+
+.roleTitleContainer, .formContainer {
+    margin-right: 27px;
+    margin-left: 27px;
+}
+
+.primaryInfo {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.formField {
+  /* border: 1px solid pink; */
+  /* width: 49%; */
+}
+
+.formInput {
+  font-family: ABeeZee;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray);
+
+  width: 336.922px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+#locationField {
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+}
