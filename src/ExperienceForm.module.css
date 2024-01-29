@@ -8,17 +8,19 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  border-radius: 15px;
+  border: 2px solid var(--gray);
+  /* width: 39%; */
+  width: 765px;
 }
 
 .symbol {
   color: var(--dark-purple)
 }
 
-.experienceForm {
-  /* width: 39%; */
-  width: 765px;
-  border-radius: 15px;
-  border: 2px solid var(--gray);
+.roleTitle, .formFields, .bulletsContainer {
+  margin-right: 27px;
+  margin-left: 27px;
 }
 
 .roleTitle {
@@ -42,6 +44,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+/* field titles and input */
+.formFields label {
+  margin-bottom: 1.5rem;
 }
 
 /* field titles */
