@@ -1,51 +1,121 @@
 @import "colors.css";
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
 
-.experienceForm,
-.formInput {
+.experienceForm {
   color: var(--text-color);
   font-family: ABeeZee;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
-
-.experienceForm {
-  /* width: 39%; */
-  width: 765px;
   border-radius: 15px;
   border: 2px solid var(--gray);
+  width: 765px;
+  width: 50%;
 }
 
-.roleTitleContainer, .formContainer {
-    margin-right: 27px;
-    margin-left: 27px;
+.symbol {
+  color: var(--dark-purple)
 }
 
-.primaryInfo {
-  /* border: 1px solid blue; */
+.roleTitle, .formFields, .bulletsContainer {
+  margin-right: 1.8rem;
+  margin-left: 1.8rem;
+}
+
+.roleTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Role Buttons */
+.roleTitle div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 4.8rem;
+}
+
+/* Role Name */
+.roleTitle h1 {
+  font-size: 24px;
+}
+
+#arrowIcon {
+  transform: rotate(180deg);
+}
+
+/* form itself */
+.formFields form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.formField {
-  /* border: 1px solid pink; */
-  /* width: 49%; */
+/* field titles and input */
+.formFields label {
+  margin-bottom: 1.5rem;
 }
 
-.formInput {
+/* field titles */
+.experienceForm h2 {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+/* field instructions */
+.experienceForm p {
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.formFields input {
   font-family: ABeeZee;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--text-color);
   border-radius: 10px;
   border: 1.5px solid var(--gray);
-
-  width: 336.922px;
-  height: 50px;
+  width: 20rem;
+  height: 2.8125rem;
   flex-shrink: 0;
 }
 
-#locationField {
-    color: green;
-    font-family: 'Times New Roman', Times, serif;
+#locationLabel {
+  width: 100%;
+}
+
+#locationLabel input {
+  width: 97.1%;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  background-color: var(--dark-purple);
+  font-family: ABeeZee;
+  color: white;
+  text-align: center;
+  font-family: ABeeZee;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 12.1875rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 30px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  background-color: #4e75fc;
+  cursor: pointer;
 }

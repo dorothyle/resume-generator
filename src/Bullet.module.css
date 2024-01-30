@@ -5,8 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 45rem;
-  margin: 0.81rem;
+  margin-bottom: 1rem;
 }
 
 .bullet span:not(:first-child) {
@@ -17,8 +16,9 @@
   border-radius: 0.625rem;
   border: 1.5px solid var(--gray);
   background: #fff;
-  width: 37.59838rem;
-  height: 2.8125rem;
+  width: 37rem;
+  width: 80%;
+  height: 2.5rem;
   flex-shrink: 0;
 
   color: var(--text-color);
