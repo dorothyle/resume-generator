@@ -29,14 +29,21 @@
   align-items: center;
 }
 
+/* Role Buttons */
 .roleTitle div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 4.8rem;
 }
 
+/* Role Name */
 .roleTitle h1 {
   font-size: 24px;
+}
+
+#arrowIcon {
+  transform: rotate(180deg);
 }
 
 /* form itself */

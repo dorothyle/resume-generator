@@ -62,6 +62,7 @@ const ExperienceForm = () => {
           <Icon
             icon={arrow}
             style={{ color: "5B7FFF", width: "2.375rem", height: "2.375rem" }}
+            id={style.arrowIcon}
           />
           <Icon
             icon={trashIcon}
