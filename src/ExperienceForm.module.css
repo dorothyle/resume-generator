@@ -10,8 +10,8 @@
   line-height: normal;
   border-radius: 15px;
   border: 2px solid var(--gray);
-  /* width: 39%; */
   width: 765px;
+  width: 50%;
 }
 
 .symbol {

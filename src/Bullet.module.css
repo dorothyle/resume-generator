@@ -17,6 +17,7 @@
   border: 1.5px solid var(--gray);
   background: #fff;
   width: 37rem;
+  width: 80%;
   height: 2.5rem;
   flex-shrink: 0;
 
