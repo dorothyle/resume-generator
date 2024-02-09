@@ -2,23 +2,51 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./Bullet.module.css";
 
-const Bullet = ({bulletList, setBulletList}) => {
+const Bullet = ({id, bulletList, setBulletList}) => {
   const bulletPoint = "material-symbols:circle-outline";
   const penIcon = "fluent:pen-sparkle-32-regular";
   const trashIcon = "ant-design:delete-outlined";
 
+  // create new bullet --> already created in add bullet button functionality
   const [newBullet, setNewBullet] = useState({
     currentBullet: "",
     versionHistory: [""],
   });
 
-  // creating/updating bullet data
+  // automatically add new bullet to bulletList prop
+  // setExperienceData({
+  //   ...experienceData,
+  //   [experienceData.bulletPoints]: [...experienceData.bulletPoints, { currentBullet: "", versionHistory: [""] }]
+  // })
+  // console.log(experienceData.bulletPoints)
+
+  // for updating bulletList with user input
   const handleChange = (e) => {
+    console.log("handleChange");
+    console.log("bullet list:");
+    console.log(bulletList);
+    console.log("prop id:");
+    console.log(id);
+    console.log("matched elem:");
+    console.log(bulletList.find(bulletElem => bulletElem.id === id));
+    // update the bullet in bulletList
     setNewBullet({
       ...newBullet,
       [e.target.name]: e.target.value,
     });
   };
+
+  const updateBulletInBulletList = (e) => {
+    // setBulletList(bulletList.map(bulletElem => {
+    //   if (bulletElem.id === id) {
+    //     // Create new Bullet object with updated currentBullet value
+    //     return {...bulletElem, [e.target.name]: e.target.value}
+    //   }
+    //   else {
+    //     return bulletElem;
+    //   }
+    // }));
+  }
 
   return (
     <div className={style.bullet}>
@@ -32,8 +60,15 @@ const Bullet = ({bulletList, setBulletList}) => {
         type="text"
         onChange={handleChange} 
         name="currentBullet"
-        value={newBullet.currentBullet}
+        // value={bulletList.find(bulletElem => bulletElem.id === id).currentBullet}
+        value={""}
       />
+      {/* <input
+        type="text"
+        onChange={updateBulletInBulletList} 
+        name="currentBullet"
+        value={bulletList.find(bulletElem => bulletElem.id === id).currentBullet}
+      /> */}
       <span>
         <Icon
           icon={penIcon}
@@ -46,6 +81,7 @@ const Bullet = ({bulletList, setBulletList}) => {
           style={{ color: "#5B7FFF", width: "1.63894rem", height: "1.8125rem" }}
         ></Icon>
       </span>
+      {/* <p>{bulletList[bulletList.length - 1].currentBullet}</p> */}
     </div>
   );
 };

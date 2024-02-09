@@ -10,7 +10,7 @@ function App() {
     startDate: "",
     endDate: "",
     location: "",
-    bulletPoints: ["this is a bullet point"],
+    bulletPoints: ["this is a bullet point"]
   });
   return (
     <div className="app-container">

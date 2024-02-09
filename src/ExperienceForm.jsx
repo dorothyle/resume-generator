@@ -3,29 +3,38 @@ import { Icon } from "@iconify/react";
 import style from "./ExperienceForm.module.css";
 import Bullet from "./Bullet";
 
+let nextId = 1;
+
 const ExperienceForm = ({experienceData, setExperienceData}) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
   // list of bullet points to pass into Bullet component
-  const [bulletPoints, setBulletPoints] = useState([
-    {
-      currentBullet: "my first bullet point",
-      versionHistory: [],
-    },
+  const [bulletList, setBulletList] = useState([
+    // {
+    //   id: 1,
+    //   currentBullet: "my first bullet point",
+    //   versionHistory: [],
+    // },
   ]);
-  // for Add Bullet button
-  const [bulletInputs, setBulletInputs] = useState([]);
+  // list of Bullet components
+  const [bulletInputFields, setBulletInputFields] = useState([]);
 
   const onAddBulletClick = (event) => {
-    setBulletInputs(
-      bulletInputs.concat(
+    setBulletList([
+      ...bulletList,
+      {id: nextId, currentBullet: "bullet number " + nextId, versionHistory: [""]}
+    ]);
+    setBulletInputFields(
+      bulletInputFields.concat(
         <Bullet
-          key={bulletInputs.length + 1}
-          bulletList={bulletPoints}
-          setBulletList={setBulletPoints}
+          key={nextId}
+          id={nextId}
+          bulletList={bulletList}
+          setBulletList={setBulletList}
         />
       )
     );
+    nextId++;
   };
   const handleChange = (e) => {
     setRoleData({
@@ -146,12 +155,11 @@ const ExperienceForm = ({experienceData, setExperienceData}) => {
           Enter a bullet point in each of the text boxes. Click on the pen icon
           to get an AI generated bullet point based on the input.
         </p>
-        <Bullet
-          key={0}
-          bulletList={bulletPoints}
-          setBulletList={setBulletPoints}
-        />
-        {bulletInputs}
+        {bulletInputFields}
+        {/* Prints what is in bulletList */}
+        {bulletList.map(bulletElem => (
+          <li key={bulletElem.id}> {bulletElem.currentBullet} </li>
+        ))}
         <button onClick={onAddBulletClick}>Add Bullet</button>
       </div>
     </section>
