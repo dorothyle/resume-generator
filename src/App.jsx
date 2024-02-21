@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ExperienceForm from "./ExperienceForm";
 import Preview from "./Preview";
+import DynamicInputFields from "./AddInputFields";
 import "./App.css";
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
   });
   return (
     <div className="app-container">
-      <Preview experienceData={experienceData} />
-      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/>
+      <DynamicInputFields />
+      {/* <Preview experienceData={experienceData} />
+      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/> */}
     </div>
   );
 }
