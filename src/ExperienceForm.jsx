@@ -5,11 +5,9 @@ import Bullet from "./Bullet";
 
 let nextId = 1;
 
-const ExperienceForm = ({experienceData, setExperienceData}) => {
+const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBulletPoints }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
-  // list of bullet points to pass into Bullet component
-  const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
 
   const handleAddInput = () => {
     setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);

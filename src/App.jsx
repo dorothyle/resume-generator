@@ -13,10 +13,12 @@ function App() {
     location: "",
     bulletPoints: ["this is a bullet point"]
   });
+  const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
+
   return (
     <div className="app-container">
-      <Preview experienceData={experienceData} />
-      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/>
+      <Preview experienceData={experienceData} bulletPoints={bulletPoints} />
+      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
     </div>
   );
 }
