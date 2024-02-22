@@ -20,12 +20,12 @@ const Preview = ({ experienceData, bulletPoints }) => {
         </div>
       </p>
       <p>
-      <div>
-        {experienceData.company === '' ? <span>Company</span> : <span>{experienceData.company}</span>}
-      </div>
-      <div>
-        {experienceData.location === '' ? <span>Location</span> : <span>{experienceData.location}</span>}
-      </div>
+        <div>
+          {experienceData.company === '' ? <span>Company</span> : <span>{experienceData.company}</span>}
+        </div>
+        <div>
+          {experienceData.location === '' ? <span>Location</span> : <span>{experienceData.location}</span>}
+        </div>
       </p>
       <ul>
         {bulletPoints.map((item) => (

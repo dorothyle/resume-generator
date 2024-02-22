@@ -22,6 +22,8 @@
 .preview p {
   display: flex;
   height: 0.8125rem;
+  margin-top: 0px;
+  margin-bottom: 3px;
   justify-content: space-between;
   color: var(--Text-Color, #414141);
   text-align: right;
@@ -40,4 +42,5 @@
 
 .preview ul {
   padding-left: 1em;
+  margin-top: 5px;
 }
