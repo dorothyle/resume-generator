@@ -15,9 +15,8 @@ function App() {
   });
   return (
     <div className="app-container">
-      <DynamicInputFields />
-      {/* <Preview experienceData={experienceData} />
-      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/> */}
+      <Preview experienceData={experienceData} />
+      <ExperienceForm experienceData={experienceData} setExperienceData={setExperienceData}/>
     </div>
   );
 }

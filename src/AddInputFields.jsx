@@ -7,28 +7,11 @@ import Bullet from './Bullet';
 let nextId = 1;
 
 export default function AddDynamicInputFields() {
-  const bulletPointIcon = 'material-symbols:circle-outline';
-  const penIcon = 'fluent:pen-sparkle-32-regular';
-  const trashIcon = 'ant-design:delete-outlined';
-
   const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
 
   const handleAddInput = () => {
     setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
     nextId++;
-  };
-
-  const handleChange = (event, index) => {
-    let { name, value } = event.target;
-    let onChangeValue = [...bulletPoints];
-    onChangeValue[index][name] = value;
-    setBulletPoints(onChangeValue);
-  };
-
-  const handleDeleteInput = index => {
-    const newArray = [...bulletPoints];
-    newArray.splice(index, 1);
-    setBulletPoints(newArray);
   };
 
   return (

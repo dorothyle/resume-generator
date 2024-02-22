@@ -9,38 +9,11 @@ const ExperienceForm = ({experienceData, setExperienceData}) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
   // list of bullet points to pass into Bullet component
-  const [bulletList, setBulletList] = useState([
-    // {
-    //   id: 1,
-    //   currentBullet: "my first bullet point",
-    //   versionHistory: [],
-    // },
-  ]);
-  // list of Bullet components
-  const [bulletInputFields, setBulletInputFields] = useState([]);
+  const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
 
-  const onAddBulletClick = (event) => {
-    setBulletList([
-      ...bulletList,
-      {id: nextId, currentBullet: "bullet number " + nextId, versionHistory: [""]}
-    ]);
-    setBulletInputFields(
-      bulletInputFields.concat(
-        <Bullet
-          key={nextId}
-          id={nextId}
-          bulletList={bulletList}
-          setBulletList={setBulletList}
-        />
-      )
-    );
+  const handleAddInput = () => {
+    setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
     nextId++;
-  };
-  const handleChange = (e) => {
-    setRoleData({
-      ...roleData,
-      [e.target.name]: e.target.value,
-    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,12 +128,12 @@ const ExperienceForm = ({experienceData, setExperienceData}) => {
           Enter a bullet point in each of the text boxes. Click on the pen icon
           to get an AI generated bullet point based on the input.
         </p>
-        {bulletInputFields}
-        {/* Prints what is in bulletList */}
-        {bulletList.map(bulletElem => (
-          <li key={bulletElem.id}> {bulletElem.currentBullet} </li>
+
+        {bulletPoints.map((item, index) => (
+          <Bullet key={item.id} index={index} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
         ))}
-        <button onClick={onAddBulletClick}>Add Bullet</button>
+        <button onClick={() => handleAddInput()}>Add Bullet</button>
+        <div className="body"> {JSON.stringify(bulletPoints)} </div>
       </div>
     </section>
   );
