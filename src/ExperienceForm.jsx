@@ -131,7 +131,6 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
           <Bullet key={item.id} index={index} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
         ))}
         <button onClick={() => handleAddInput()}>Add Bullet</button>
-        <div className="body"> {JSON.stringify(bulletPoints)} </div>
       </div>
     </section>
   );

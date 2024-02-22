@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ExperienceForm from "./ExperienceForm";
 import Preview from "./Preview";
-import DynamicInputFields from "./AddInputFields";
 import "./App.css";
 
 function App() {
