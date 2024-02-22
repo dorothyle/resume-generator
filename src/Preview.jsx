@@ -2,37 +2,44 @@ import React from "react";
 import style from "./Preview.module.css";
 
 const Preview = ({ experienceList, bulletPoints }) => {
-  const experienceData = experienceList[0];
-  let startDate = new Date(experienceData.startDate.split("-"));
-  let endDate = new Date(experienceData.endDate.split("-"));
-  let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
-  startDate = `${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
-  endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
-  
+
+  const formatDates = (experience) => {
+    let startDate = new Date(experience.startDate.split("-"));
+    let endDate = new Date(experience.endDate.split("-"));
+    let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
+    startDate = `${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
+    endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
+    return [startDate, endDate];
+  };
+
   return (
     <div className={style.preview}>
       <h1>Experience</h1>
-      <p>
+      {experienceList.map((experience) => (
         <div>
-          {experienceData.role === '' ? <span>Role</span> : <span>{experienceData.role}</span>}
+          <p>
+            <div>
+              {experience.role === '' ? <span>Role</span> : <span>{experience.role}</span>}
+            </div>
+            <div>
+              {experience.startDate === '' ? <span>Start Date</span> : <span>{formatDates(experience)[0]}</span>} - {experience.endDate === '' ? <span>End Date</span> : <span>{formatDates(experience)[1]}</span>}
+            </div>
+          </p>
+          <p>
+            <div>
+              {experience.company === '' ? <span>Company</span> : <span>{experience.company}</span>}
+            </div>
+            <div>
+              {experience.location === '' ? <span>Location</span> : <span>{experience.location}</span>}
+            </div>
+          </p>
+          <ul>
+            {bulletPoints.map((item) => (
+              <li>{item.text}</li>
+            ))}
+          </ul>
         </div>
-        <div>
-          {experienceData.startDate === '' ? <span>Start Date</span> : <span>{startDate}</span>} - {experienceData.endDate === '' ? <span>End Date</span> : <span>{endDate}</span>}
-        </div>
-      </p>
-      <p>
-        <div>
-          {experienceData.company === '' ? <span>Company</span> : <span>{experienceData.company}</span>}
-        </div>
-        <div>
-          {experienceData.location === '' ? <span>Location</span> : <span>{experienceData.location}</span>}
-        </div>
-      </p>
-      <ul>
-        {bulletPoints.map((item) => (
-          <li>{item.text}</li>
-        ))}
-      </ul>
+      ))}
     </div>
   );
 };
