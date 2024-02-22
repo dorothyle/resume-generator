@@ -5,13 +5,20 @@ import Bullet from "./Bullet";
 
 let nextId = 1;
 
-const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBulletPoints }) => {
+const ExperienceForm = ({ index, experienceList, setExperienceList, bulletPoints, setBulletPoints }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
+  const experienceData = experienceList[index];
 
   const handleAddInput = () => {
     setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
     nextId++;
+  };
+  const handleChange = (event, index) => {
+    let { name, value } = event.target;
+    let onChangeValue = [...experienceList];
+    onChangeValue[index][name] = value;
+    setExperienceList(onChangeValue);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,13 +55,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="role"
-              value={experienceData.role}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].role}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter role here"
             />
           </label>
@@ -63,13 +65,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="company"
-              value={experienceData.company}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].company}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter company here"
             />
           </label>
@@ -78,13 +75,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="date"
               name="startDate"
-              value={experienceData.startDate}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].startDate}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter start date here"
             />
           </label>
@@ -93,13 +85,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="date"
               name="endDate"
-              value={experienceData.endDate}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].endDate}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter end date here"
             />
           </label>
@@ -108,13 +95,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="location"
-              value={experienceData.location}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].location}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter location here"
             />
           </label>

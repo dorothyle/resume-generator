@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./Preview.module.css";
 
-const Preview = ({ experienceData, bulletPoints }) => {
+const Preview = ({ experienceList, bulletPoints }) => {
+  const experienceData = experienceList[0];
   let startDate = new Date(experienceData.startDate.split("-"));
   let endDate = new Date(experienceData.endDate.split("-"));
   let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
