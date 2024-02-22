@@ -3,44 +3,15 @@ import { Icon } from "@iconify/react";
 import style from "./ExperienceForm.module.css";
 import Bullet from "./Bullet";
 
-const ExperienceForm = () => {
+let nextId = 1;
+
+const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBulletPoints }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
 
-  const [experienceData, setExperienceData] = useState({
-    role: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    bulletPoints: ["this is a bullet point"],
-  });
-  // list of bullet points to pass into Bullet component
-  const [bulletPoints, setBulletPoints] = useState([
-    {
-      currentBullet: "my first bullet point",
-      versionHistory: [],
-    },
-  ]);
-  // for Add Bullet button
-  const [bulletInputs, setBulletInputs] = useState([]);
-
-  const onAddBulletClick = (event) => {
-    setBulletInputs(
-      bulletInputs.concat(
-        <Bullet
-          key={bulletInputs.length + 1}
-          bulletList={bulletPoints}
-          setBulletList={setBulletPoints}
-        />
-      )
-    );
-  };
-  const handleChange = (e) => {
-    setRoleData({
-      ...roleData,
-      [e.target.name]: e.target.value,
-    });
+  const handleAddInput = () => {
+    setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
+    nextId++;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,13 +126,11 @@ const ExperienceForm = () => {
           Enter a bullet point in each of the text boxes. Click on the pen icon
           to get an AI generated bullet point based on the input.
         </p>
-        <Bullet
-          key={0}
-          bulletList={bulletPoints}
-          setBulletList={setBulletPoints}
-        />
-        {bulletInputs}
-        <button onClick={onAddBulletClick}>Add Bullet</button>
+
+        {bulletPoints.map((item, index) => (
+          <Bullet key={item.id} index={index} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
+        ))}
+        <button onClick={() => handleAddInput()}>Add Bullet</button>
       </div>
     </section>
   );
