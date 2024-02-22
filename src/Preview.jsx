@@ -2,8 +2,8 @@ import React from "react";
 import style from "./Preview.module.css";
 
 const Preview = ({ experienceData, bulletPoints }) => {
-  let startDate = new Date(experienceData.startDate);
-  let endDate = new Date(experienceData.endDate);
+  let startDate = new Date(experienceData.startDate.split("-"));
+  let endDate = new Date(experienceData.endDate.split("-"));
   let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
   startDate = `${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
   endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
