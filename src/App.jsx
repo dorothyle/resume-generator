@@ -10,7 +10,7 @@ function App() {
     startDate: "",
     endDate: "",
     location: "",
-    bulletPoints: ["this is a bullet point"]
+    bulletPoints: [{ id: 0, text: '', versionHistory: [] }]
   }]);
   const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
 

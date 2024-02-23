@@ -12,6 +12,9 @@ const ExperienceForm = ({ index, experienceList, setExperienceList, bulletPoints
 
   const handleAddInput = () => {
     setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
+    let newExperienceList = [...experienceList];
+    newExperienceList[index].bulletPoints = [...newExperienceList[index].bulletPoints, { id: nextId, text: '', versionHistory: [] }];
+    setExperienceList(newExperienceList);
     nextId++;
   };
   const handleChange = (event, index) => {
@@ -109,8 +112,8 @@ const ExperienceForm = ({ index, experienceList, setExperienceList, bulletPoints
           to get an AI generated bullet point based on the input.
         </p>
 
-        {bulletPoints.map((item, index) => (
-          <Bullet key={item.id} index={index} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
+        {experienceList[index].bulletPoints.map((item, bulletIndex) => (
+          <Bullet key={item.id} experienceIndex={index} bulletIndex={bulletIndex} index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
         ))}
         <button onClick={() => handleAddInput()}>Add Bullet</button>
       </div>
