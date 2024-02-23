@@ -26,6 +26,11 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
     e.preventDefault();
     console.log("Role submitted", roleData);
   };
+  const handleDeleteRole = index => {
+    const newExperienceList = [...experienceList];
+    newExperienceList.splice(index, 1);
+    setExperienceList(newExperienceList);
+  };
 
   return (
     <section className={style.experienceForm}>
@@ -47,6 +52,7 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
           <Icon
             icon={trashIcon}
             style={{ color: "5B7FFF", width: "1.5625rem", height: "1.5625rem" }}
+            onClick={() => handleDeleteRole(index)}
           />
         </div>
       </div>
