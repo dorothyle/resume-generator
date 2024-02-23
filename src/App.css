@@ -5,6 +5,14 @@
   margin: 3rem;
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  max-width: 765px;
+}
+
 body{
   margin: 0;
 }
