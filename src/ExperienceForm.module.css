@@ -11,6 +11,11 @@
   border-radius: 15px;
   border: 2px solid var(--gray);
   width: 100%;
+  overflow: hidden;
+}
+
+.experienceForm.closed {
+  height: 4rem;
 }
 
 .symbol {
@@ -41,8 +46,12 @@
   font-size: 24px;
 }
 
-#arrowIcon {
+.arrowIcon {
   transform: rotate(180deg);
+}
+
+.arrowIcon.closed {
+  transform: rotate(0deg);
 }
 
 /* form itself */
