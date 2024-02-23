@@ -5,13 +5,12 @@ import Bullet from "./Bullet";
 
 let nextId = 1;
 
-const ExperienceForm = ({ index, experienceList, setExperienceList, bulletPoints, setBulletPoints }) => {
+const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
   const experienceData = experienceList[index];
 
   const handleAddInput = () => {
-    setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
     let newExperienceList = [...experienceList];
     newExperienceList[index].bulletPoints = [...newExperienceList[index].bulletPoints, { id: nextId, text: '', versionHistory: [] }];
     setExperienceList(newExperienceList);

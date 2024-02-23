@@ -12,13 +12,12 @@ function App() {
     location: "",
     bulletPoints: [{ id: 0, text: '', versionHistory: [] }]
   }]);
-  const [bulletPoints, setBulletPoints] = useState([{ id: 0, text: '', versionHistory: [] }]);
 
   return (
     <div className="app-container">
       <Preview experienceList={experienceList} />
       {experienceList.map((experience, index) => (
-        <ExperienceForm index={index} experienceList={experienceList} setExperienceList={setExperienceList} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
+        <ExperienceForm index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
       ))}
     </div>
   );
