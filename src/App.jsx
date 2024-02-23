@@ -4,9 +4,12 @@ import ExperienceForm from "./ExperienceForm";
 import Preview from "./Preview";
 import "./App.css";
 
+let nextId = 1;
+
 function App() {
   const plusIcon = "ic:round-plus";
   const [experienceList, setExperienceList] = useState([{
+    id: 0,
     role: "",
     company: "",
     startDate: "",
@@ -18,6 +21,7 @@ function App() {
   const handleAddRole = () => {
     setExperienceList([...experienceList,
     {
+      id: nextId,
       role: "",
       company: "",
       startDate: "",
@@ -25,6 +29,7 @@ function App() {
       location: "",
       bulletPoints: [{ id: 0, text: '', versionHistory: [] }]
     }]);
+    nextId++;
   }
 
   return (
@@ -32,7 +37,7 @@ function App() {
       <Preview experienceList={experienceList} />
       <div className="formContainer">
         {experienceList.map((experience, index) => (
-          <ExperienceForm index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
+          <ExperienceForm key={experience.id} index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
         ))}
         
         <div className="addRoleButtonContainer">

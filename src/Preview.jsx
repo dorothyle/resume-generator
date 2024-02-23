@@ -16,7 +16,7 @@ const Preview = ({ experienceList }) => {
     <div className={style.preview}>
       <h1>Experience</h1>
       {experienceList.map((experience, experienceIndex) => (
-        <div>
+        <div key={experience.id}>
           <p>
             <div>
               {experience.role === '' ? <span>Role</span> : <span>{experience.role}</span>}
@@ -35,7 +35,7 @@ const Preview = ({ experienceList }) => {
           </p>
           <ul>
             {experienceList[experienceIndex].bulletPoints.map((item) => (
-              <li>{item.text}</li>
+              <li key={item.id}>{item.text}</li>
             ))}
           </ul>
         </div>
