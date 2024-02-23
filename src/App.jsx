@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Preview experienceList={experienceList} bulletPoints={bulletPoints} />
+      <Preview experienceList={experienceList} />
       {experienceList.map((experience, index) => (
         <ExperienceForm index={index} experienceList={experienceList} setExperienceList={setExperienceList} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
       ))}

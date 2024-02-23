@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Preview.module.css";
 
-const Preview = ({ experienceList, bulletPoints }) => {
+const Preview = ({ experienceList }) => {
 
   const formatDates = (experience) => {
     let startDate = new Date(experience.startDate.split("-"));
@@ -15,7 +15,7 @@ const Preview = ({ experienceList, bulletPoints }) => {
   return (
     <div className={style.preview}>
       <h1>Experience</h1>
-      {experienceList.map((experience) => (
+      {experienceList.map((experience, experienceIndex) => (
         <div>
           <p>
             <div>
@@ -34,7 +34,7 @@ const Preview = ({ experienceList, bulletPoints }) => {
             </div>
           </p>
           <ul>
-            {bulletPoints.map((item) => (
+            {experienceList[experienceIndex].bulletPoints.map((item) => (
               <li>{item.text}</li>
             ))}
           </ul>
