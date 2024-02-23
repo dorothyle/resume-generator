@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 import ExperienceForm from "./ExperienceForm";
 import Preview from "./Preview";
 import "./App.css";
 
 function App() {
+  const plusIcon = "ic:round-plus";
   const [experienceList, setExperienceList] = useState([{
     role: "",
     company: "",
@@ -32,9 +34,12 @@ function App() {
         {experienceList.map((experience, index) => (
           <ExperienceForm index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
         ))}
-        <button onClick={() => handleAddRole()}>Add Role</button>
+        
+        <div className="addRoleButtonContainer">
+          <Icon icon={plusIcon} id="plusIcon" />
+          <button onClick={() => handleAddRole()}>Add more roles</button>
+        </div>
       </div>
-
     </div>
   );
 }

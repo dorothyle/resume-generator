@@ -1,3 +1,6 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
 .app-container{
   display: flex;
   justify-content: space-around;
@@ -11,6 +14,37 @@
   margin-right: 3rem;
   margin-left: 3rem;
   max-width: 765px;
+}
+
+.addRoleButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#plusIcon {
+  color: var(--text-color);
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.addRoleButtonContainer button {
+  margin-left: 0px;
+  display: block;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: ABeeZee;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  flex-shrink: 0;
+  border: none;
+}
+
+.addRoleButtonContainer:hover, .addRoleButtonContainer button:hover {
+  cursor: pointer;
 }
 
 body{
