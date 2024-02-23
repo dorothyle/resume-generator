@@ -93,11 +93,10 @@
   width: 97.1%;
 }
 
-button {
+.bulletsContainer button {
   display: block;
   margin: 0 auto;
   background-color: var(--dark-purple);
-  font-family: ABeeZee;
   color: white;
   text-align: center;
   font-family: ABeeZee;
@@ -114,7 +113,7 @@ button {
   margin-bottom: 1rem;
 }
 
-button:hover {
+.bulletsContainer button:hover {
   background-color: #4e75fc;
   cursor: pointer;
 }
