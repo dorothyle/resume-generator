@@ -12,6 +12,7 @@
   border: 2px solid var(--gray);
   width: 100%;
   overflow: hidden;
+  margin-bottom: 0.7rem;
 }
 
 .experienceForm.closed {
