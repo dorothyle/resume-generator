@@ -20,7 +20,7 @@ function App() {
   }]);
 
   const handleAddRole = () => {
-    let newExperienceList = experienceList.map((experience, index) => ({ ...experience, isOpen: false }));
+    let newExperienceList = experienceList.map((experience) => ({ ...experience, isOpen: false }));
     newExperienceList.push({
       id: nextId,
       role: "",

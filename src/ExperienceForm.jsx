@@ -32,7 +32,14 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
     setExperienceList(newExperienceList);
   };
   const toggleIsOpen = () => {
-    let newExperienceList = [...experienceList];
+    let newExperienceList = experienceList.map((experience, i) => {
+      if (i !== index) {
+        return { ...experience, isOpen: false};
+      }
+      else {
+        return experience;
+      }
+    });
     newExperienceList[index].isOpen = !newExperienceList[index].isOpen;
     setExperienceList(newExperienceList);
   }
