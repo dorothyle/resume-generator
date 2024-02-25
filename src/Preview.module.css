@@ -11,6 +11,7 @@
   font-family: ABeeZee;
   width: 38.25rem;
   height: 45rem;
+  overflow-y: auto;
 }
 
 .preview h1 {
