@@ -5,21 +5,47 @@ import Bullet from "./Bullet";
 
 let nextId = 1;
 
-const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBulletPoints }) => {
+const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
+  const experienceData = experienceList[index];
 
   const handleAddInput = () => {
-    setBulletPoints([...bulletPoints, { id: nextId, text: '', versionHistory: [] }]);
+    let newExperienceList = [...experienceList];
+    newExperienceList[index].bulletPoints = [...newExperienceList[index].bulletPoints, { id: nextId, text: '', versionHistory: [] }];
+    setExperienceList(newExperienceList);
     nextId++;
+  };
+  const handleChange = (event, index) => {
+    let { name, value } = event.target;
+    let onChangeValue = [...experienceList];
+    onChangeValue[index][name] = value;
+    setExperienceList(onChangeValue);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Role submitted", roleData);
   };
+  const handleDeleteRole = index => {
+    const newExperienceList = [...experienceList];
+    newExperienceList.splice(index, 1);
+    setExperienceList(newExperienceList);
+  };
+  const toggleIsOpen = () => {
+    let newExperienceList = experienceList.map((experience, i) => {
+      if (i !== index) {
+        return { ...experience, isOpen: false};
+      }
+      else {
+        return experience;
+      }
+    });
+    newExperienceList[index].isOpen = !newExperienceList[index].isOpen;
+    setExperienceList(newExperienceList);
+  }
 
   return (
-    <section className={style.experienceForm}>
+    <section className={`${style.experienceForm} ${experienceList[index].isOpen ? "" : style.closed}`} >
       <div className={style.roleTitle}>
         {/* if the state is not blank, show obj.role and @ obj.company, else show Role Name @ Company Name */}
         <h1>
@@ -32,12 +58,14 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
         <div>
           <Icon
             icon={arrow}
+            className={`${style.arrowIcon} ${experienceList[index].isOpen ? "" : style.closed}`}
             style={{ color: "5B7FFF", width: "2.375rem", height: "2.375rem" }}
-            id={style.arrowIcon}
+            onClick={toggleIsOpen}
           />
           <Icon
             icon={trashIcon}
             style={{ color: "5B7FFF", width: "1.5625rem", height: "1.5625rem" }}
+            onClick={() => handleDeleteRole(index)}
           />
         </div>
       </div>
@@ -48,13 +76,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="role"
-              value={experienceData.role}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].role}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter role here"
             />
           </label>
@@ -63,13 +86,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="company"
-              value={experienceData.company}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].company}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter company here"
             />
           </label>
@@ -78,13 +96,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="date"
               name="startDate"
-              value={experienceData.startDate}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].startDate}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter start date here"
             />
           </label>
@@ -93,13 +106,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="date"
               name="endDate"
-              value={experienceData.endDate}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].endDate}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter end date here"
             />
           </label>
@@ -108,13 +116,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
             <input
               type="text"
               name="location"
-              value={experienceData.location}
-              onChange={(e) =>
-                setExperienceData({
-                  ...experienceData,
-                  [e.target.name]: e.target.value,
-                })
-              }
+              value={experienceList[index].location}
+              onChange={event => handleChange(event, index)}
               placeholder="Enter location here"
             />
           </label>
@@ -127,8 +130,8 @@ const ExperienceForm = ({ experienceData, setExperienceData, bulletPoints, setBu
           to get an AI generated bullet point based on the input.
         </p>
 
-        {bulletPoints.map((item, index) => (
-          <Bullet key={item.id} index={index} bulletPoints={bulletPoints} setBulletPoints={setBulletPoints} />
+        {experienceList[index].bulletPoints.map((item, bulletIndex) => (
+          <Bullet key={item.id} experienceIndex={index} bulletIndex={bulletIndex} index={index} experienceList={experienceList} setExperienceList={setExperienceList} />
         ))}
         <button onClick={() => handleAddInput()}>Add Bullet</button>
       </div>
