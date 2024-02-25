@@ -9,7 +9,6 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
   const experienceData = experienceList[index];
-  const [isActive, setIsActive] = useState(true);
 
   const handleAddInput = () => {
     let newExperienceList = [...experienceList];
@@ -32,12 +31,14 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
     newExperienceList.splice(index, 1);
     setExperienceList(newExperienceList);
   };
-  const toggleIsActive = () => {
-    setIsActive(!isActive);
+  const toggleIsOpen = () => {
+    let newExperienceList = [...experienceList];
+    newExperienceList[index].isOpen = !newExperienceList[index].isOpen;
+    setExperienceList(newExperienceList);
   }
 
   return (
-    <section className={`${style.experienceForm} ${isActive ? "" : style.closed}`} >
+    <section className={`${style.experienceForm} ${experienceList[index].isOpen ? "" : style.closed}`} >
       <div className={style.roleTitle}>
         {/* if the state is not blank, show obj.role and @ obj.company, else show Role Name @ Company Name */}
         <h1>
@@ -50,9 +51,9 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
         <div>
           <Icon
             icon={arrow}
-            className={`${style.arrowIcon} ${isActive ? "" : style.closed}`}
+            className={`${style.arrowIcon} ${experienceList[index].isOpen ? "" : style.closed}`}
             style={{ color: "5B7FFF", width: "2.375rem", height: "2.375rem" }}
-            onClick={toggleIsActive}
+            onClick={toggleIsOpen}
           />
           <Icon
             icon={trashIcon}

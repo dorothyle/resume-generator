@@ -15,7 +15,8 @@ function App() {
     startDate: "",
     endDate: "",
     location: "",
-    bulletPoints: [{ id: 0, text: '', versionHistory: [] }]
+    bulletPoints: [{ id: 0, text: '', versionHistory: [] }],
+    isOpen: true
   }]);
 
   const handleAddRole = () => {
