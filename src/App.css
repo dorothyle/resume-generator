@@ -4,7 +4,6 @@
 .app-container{
   display: flex;
   justify-content: space-around;
-  align-items: center;
   margin: 3rem;
 }
 
