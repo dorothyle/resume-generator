@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./VersionHistoryPopup.module.css";
 
-const VersionHistoryPopup = ({ appear, setAppear }) => {
+const VersionHistoryPopup = ({ appear, setAppear, experienceList, experienceIndex, bulletIndex }) => {
     const xIcon = "ph:x-bold";
     const [tags, setTags] = useState(["Shorten", "Expand", "Rephrase", "Impact-Focused", "More Specific", "Simplify", "More Professional"]);
 
@@ -22,6 +22,15 @@ const VersionHistoryPopup = ({ appear, setAppear }) => {
                 ></Icon>
                 <div>
                     <h1>Version History</h1>
+                    <ul>
+                        {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
+                            return (
+                                <li key={index}>
+                                    <p>{version}</p>
+                                </li>
+                            )
+                        })}
+                    </ul>
                     {/* Past versions go here */}
                     {/* <VersionHistoryBullet isSelected={true} />
                     <VersionHistoryBullet isSelected={false} /> */}
@@ -29,6 +38,7 @@ const VersionHistoryPopup = ({ appear, setAppear }) => {
 
                 <div className={style.tagsContainer}>
                     <h1>Tags</h1>
+                    <p>Select tag(s) to customize the AI-generated output. Click ‘Generate’ to generate another bullet point.</p>
                     <ul>
                         {tags.map((tag, index) => {
                             return (

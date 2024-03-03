@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.tagsContainer {
+    width: 30%;
+}
+
 .tagsContainer ul {
     list-style-type: none;
     padding: 0px;
