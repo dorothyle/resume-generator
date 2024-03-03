@@ -1,0 +1,47 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+.versionHistoryPopupContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    z-index: 3;
+}
+
+.overlay {
+    position: fixed; 
+    display: block; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(172, 182, 179, 0.15); 
+    backdrop-filter: blur(1px);
+    z-index: 2; 
+    cursor: pointer;
+}
+
+.popupAndOverlayContainer.closed {
+    display: none;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.tagsContainer ul {
+    list-style-type: none;
+    padding: 0px;
+}
