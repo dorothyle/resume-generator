@@ -5,13 +5,21 @@ import style from "./VersionHistoryPopup.module.css";
 const VersionHistoryPopup = ({ appear, setAppear, experienceList, experienceIndex, bulletIndex }) => {
     const xIcon = "ph:x-bold";
     const [tags, setTags] = useState(["Shorten", "Expand", "Rephrase", "Impact-Focused", "More Specific", "Simplify", "More Professional"]);
+    const [isTagSelected, setIsTagSelected] = useState([false, false, false, false, false, false, false])
 
     const closePopup = () => {
         setAppear(false);
     }
 
+    const changeTagSelection = (index) => {
+        const copy = [...isTagSelected];
+        copy[index] = !copy[index];
+        setIsTagSelected(copy);
+    }
+
     return (
         <div className={`${style.popupAndOverlayContainer} ${ appear ? "" : style.closed}`}>
+            <p>{isTagSelected}</p>
             <div className={style.overlay} onClick={closePopup} ></div>
             <div className={style.versionHistoryPopupContainer}>
                 <Icon
@@ -43,12 +51,13 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, experienceInde
                         {tags.map((tag, index) => {
                             return (
                                 <li key={index}>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" onClick={() => changeTagSelection(index)} />
                                     <label>{tag}</label>
                                 </li>
                             )
                         })}
                     </ul>
+                    <button>Generate</button>
                 </div>
             </div>
         </div>
