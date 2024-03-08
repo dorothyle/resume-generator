@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
+from openai import OpenAI
 
 app = Flask(__name__)
 CORS(app, origins="*")
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key="API-KEY-HERE"
+)
 
 @app.route('/')
 def home():
@@ -15,8 +21,32 @@ def generateBullet():
     tags = request.json['tags']
     print("current bullet:", currentBullet)
     print("tags:", tags)
-    outputDict = {"output": "You entered X" + currentBullet + "X with tags: " + str(tags)}
+    customizeString = ""
+
+    # check if tags were selected
+    if len(tags) > 0:
+        customizeString = " Please make it have the following traits: "
+        for tag in tags:
+            customizeString += tag + ", "
+        customizeString = customizeString[:-2] + "."
+
+    print("customizeString:", customizeString)
+
+    # call OpenAI API to get generated text
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {"role": "user", "content": "Revise this sentence: " + currentBullet + "." + customizeString},
+        ],
+        model="gpt-3.5-turbo",
+        max_tokens=250,
+    )
+
+    generated_text = chat_completion.choices[0].message.content.strip()
+    print(generated_text)
+
+    # outputDict = {"output": "You entered X" + currentBullet + "X with tags: " + str(tags)}
+    outputDict = {"output": generated_text}
     return jsonify(outputDict)
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=8000, debug=True)
