@@ -50,7 +50,7 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
           ></Icon>
         </span>
       </div>
-      <VersionHistoryPopup appear={appear} setAppear={setAppear} experienceList={experienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex}/>
+      <VersionHistoryPopup appear={appear} setAppear={setAppear} experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex}/>
     </div>
   );
 };

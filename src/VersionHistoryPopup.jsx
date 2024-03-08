@@ -2,13 +2,52 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./VersionHistoryPopup.module.css";
 
-const VersionHistoryPopup = ({ appear, setAppear, experienceList, experienceIndex, bulletIndex }) => {
+const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceList, experienceIndex, bulletIndex }) => {
     const xIcon = "ph:x-bold";
     const [tags, setTags] = useState(["Shorten", "Expand", "Rephrase", "Impact-Focused", "More Specific", "Simplify", "More Professional"]);
     const [isTagSelected, setIsTagSelected] = useState([false, false, false, false, false, false, false])
 
     const closePopup = () => {
         setAppear(false);
+    }
+
+    const generateBullet = async () => {
+        console.log(experienceList[experienceIndex]);
+        const currentBullet = experienceList[experienceIndex].bulletPoints[bulletIndex].text;
+        const selectedTags = [];
+        isTagSelected.map((x, index) => {
+            if (x === true) {
+                selectedTags.push(tags[index]);
+            }
+        })
+
+        try {
+            // make request to get AI generated bullet point
+            const response = await fetch('http://127.0.0.1:5000/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "text": currentBullet,
+                    "tags": selectedTags
+                })
+            });
+        
+            if (!response.ok) {
+                console.log("RESPONSE IS NOT OK")
+                throw new Error('Failed to fetch data');
+            }
+        
+            // add it to version history
+            const newVersion = await response.json();
+            const copy = [...experienceList];
+            copy[experienceIndex].bulletPoints[bulletIndex].versionHistory = [...copy[experienceIndex].bulletPoints[bulletIndex].versionHistory, newVersion.output];
+            setExperienceList(copy);
+        } catch (error) {
+            console.log('CANNOT FETCH DATA')
+            console.error('Error fetching data:', error);
+        }
     }
 
     const changeTagSelection = (index) => {
@@ -57,7 +96,7 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, experienceInde
                             )
                         })}
                     </ul>
-                    <button>Generate</button>
+                    <button onClick={generateBullet}>Generate</button>
                 </div>
             </div>
         </div>
