@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./VersionHistoryPopup.module.css";
+import VersionHistoryBullet from "./VersionHistoryBullet";
 
 const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceList, experienceIndex, bulletIndex }) => {
     const xIcon = "ph:x-bold";
@@ -67,14 +68,15 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                     style={{ color: '#414141', width: '1.3rem', height: '1.3rem' }}
                     onClick={closePopup}
                 ></Icon>
-                <div>
+                <div className={style.versionContainer}>
                     <h1>Version History</h1>
                     <ul>
                         {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                             return (
-                                <li key={index}>
-                                    <p>{version}</p>
-                                </li>
+                                // <li key={index}>
+                                //     <p>{version}</p>
+                                // </li>
+                                <VersionHistoryBullet key={index} text={version}/>
                             )
                         })}
                     </ul>
@@ -90,8 +92,10 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                         {tags.map((tag, index) => {
                             return (
                                 <li key={index}>
-                                    <input type="checkbox" onClick={() => changeTagSelection(index)} />
-                                    <label>{tag}</label>
+                                    <label>
+                                        <input type="checkbox" onClick={() => changeTagSelection(index)} />
+                                        <p>{tag}</p>
+                                    </label>
                                 </li>
                             )
                         })}

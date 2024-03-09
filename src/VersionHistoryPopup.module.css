@@ -41,11 +41,81 @@
     cursor: pointer;
 }
 
+.versionHistoryPopupContainer h1 {
+    color: var(--text-color);
+    font-family: ABeeZee;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .tagsContainer {
-    width: 30%;
+    width: 40%;
 }
 
 .tagsContainer ul {
     list-style-type: none;
     padding: 0px;
+    color: var(--text-color);
+    font-family: ABeeZee;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Tag and checkbox */
+.tagsContainer label {
+    display: flex;
+    width: auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* Tag text */
+.tagsContainer label p {
+    margin-left: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Custom unchecked checkbox */
+.tagsContainer input {
+    cursor: pointer;
+    appearance: none; /* hide default checkbox */
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+/* Custom checkbox on hover */
+.tagsContainer input:hover {
+    background-color: #ccc;
+}
+
+/* Custom checkbox when checked */
+.tagsContainer input:checked {
+    background-color: var(--pastel-purple);
+    border-color: var(--purple-blue);
+}
+
+/* Checkmark style */
+.tagsContainer input:checked:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid var(--purple-blue);
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
 }
