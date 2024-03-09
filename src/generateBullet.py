@@ -33,19 +33,19 @@ def generateBullet():
     print("customizeString:", customizeString)
 
     # call OpenAI API to get generated text
-    chat_completion = client.chat.completions.create(
-        messages=[
-            {"role": "user", "content": "Revise this sentence: " + currentBullet + "." + customizeString},
-        ],
-        model="gpt-3.5-turbo",
-        max_tokens=250,
-    )
+    # chat_completion = client.chat.completions.create(
+    #     messages=[
+    #         {"role": "user", "content": "Revise this sentence: " + currentBullet + "." + customizeString},
+    #     ],
+    #     model="gpt-3.5-turbo",
+    #     max_tokens=250,
+    # )
 
-    generated_text = chat_completion.choices[0].message.content.strip()
-    print(generated_text)
+    # generated_text = chat_completion.choices[0].message.content.strip()
+    # print(generated_text)
 
-    # outputDict = {"output": "You entered X" + currentBullet + "X with tags: " + str(tags)}
-    outputDict = {"output": generated_text}
+    outputDict = {"output": "You entered '" + currentBullet + "' with tags: " + str(tags)}
+    # outputDict = {"output": generated_text}
     return jsonify(outputDict)
 
 if __name__ == '__main__':
