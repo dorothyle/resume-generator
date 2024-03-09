@@ -70,13 +70,11 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                 ></Icon>
                 <div className={style.versionContainer}>
                     <h1>Version History</h1>
-                    <ul>
-                        {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
-                            return (
-                                <VersionHistoryBullet key={index} text={version}/>
-                            )
-                        })}
-                    </ul>
+                    {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
+                        return (
+                            <VersionHistoryBullet key={index} text={version}/>
+                        )
+                    })}
                     {/* Past versions go here */}
                     {/* <VersionHistoryBullet isSelected={true} />
                     <VersionHistoryBullet isSelected={false} /> */}
