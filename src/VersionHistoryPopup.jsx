@@ -73,9 +73,6 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                     <ul>
                         {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                             return (
-                                // <li key={index}>
-                                //     <p>{version}</p>
-                                // </li>
                                 <VersionHistoryBullet key={index} text={version}/>
                             )
                         })}
