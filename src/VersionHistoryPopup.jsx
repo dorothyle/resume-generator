@@ -9,23 +9,20 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
     const [tags, setTags] = useState(["Shorten", "Expand", "Rephrase", "Impact-Focused", "More Specific", "Simplify", "More Professional"]);
     const [isTagSelected, setIsTagSelected] = useState([false, false, false, false, false, false, false]);
     const [selectedVersion, setSelectedVersion] = useState("");
+    const [versionIndex, setVersionIndex] = useState(-1);
 
     const closePopup = () => {
         setAppear(false);
-        // TODO: set selectedVersion back to current bullet point
-    }
-
-    // Changes a selectedVersion variable
-    const changeSelectedVersion = (version) => {
-        setSelectedVersion(version);
+        setVersionIndex(-1);
     }
 
     // Updates the current bullet point to the selected version
     const saveVersion = () => {
         const copy = [...experienceList];
-        copy[experienceIndex].bulletPoints[bulletIndex].text = selectedVersion;
+        copy[experienceIndex].bulletPoints[bulletIndex].text = copy[experienceIndex].bulletPoints[bulletIndex].versionHistory[versionIndex];
         setExperienceList(copy);
         setAppear(false);
+        setVersionIndex(-1);
     }
   
     const generateBullet = async () => {
@@ -86,10 +83,11 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                 ></Icon>
                 <div className={style.versionContainer}>
                     <h1>Version History</h1>
+                    <p>Select to replace <span className={style.highlightCurrentBullet}>"{experienceList[experienceIndex].bulletPoints[bulletIndex].text}"</span></p>
                     {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                         return (
-                            <div onClick={() => setSelectedVersion(version)}>
-                                <VersionHistoryBullet key={index} text={version} />
+                            <div onClick={() => setVersionIndex(index)}>
+                                <VersionHistoryBullet key={index} text={version} isSelected={index === versionIndex} />
                             </div>
                         )
                     })}

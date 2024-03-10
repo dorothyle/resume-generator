@@ -2,10 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
 
 .versionBulletContainer {
-    /* styling for selected bullet point */
-    /* border: 2.5px solid var(--purple-blue);
-    border-radius: 10px;
-    background-color: var(--pastel-purple); */
     border: 1.5px solid var(--gray);
     border-radius: 10px;
     background-color: white;
@@ -18,6 +14,13 @@
     display: flex;
     width: 18rem;
     margin-bottom: 0.7rem;
+    cursor: pointer;
+}
+
+.versionBulletContainer.selected {
+    border: 2.5px solid var(--purple-blue);
+    border-radius: 10px;
+    background-color: var(--pastel-purple);
 }
 
 .versionBulletContainer p {

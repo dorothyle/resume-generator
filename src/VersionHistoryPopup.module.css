@@ -127,6 +127,7 @@
     transform: rotate(45deg);
 }
 
+/* Save button */
 .saveIcon {
     color: var(--dark-purple);
     position: absolute;
@@ -134,4 +135,9 @@
     right: 0px;
     width: 2rem;
     height: 2rem;
+}
+
+/* Purple text for current bullet point */
+.highlightCurrentBullet {
+    color: var(--dark-purple);
 }
