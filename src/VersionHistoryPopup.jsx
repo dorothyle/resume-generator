@@ -107,7 +107,7 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
 
                 <div className={style.tagsContainer}>
                     <h1>Tags</h1>
-                    <p>Select tag(s) to customize the AI-generated output. Click ‘Generate’ to generate another bullet point.</p>
+                    <p>Click "Generate" to generate another bullet point. Select tag(s) to customize the AI-generated output.</p>
                     <ul>
                         {tags.map((tag, index) => {
                             return (
