@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <div className="app-container">
+    <div className="app-container">      
       <Preview experienceList={experienceList} />
       <div className="formContainer">
         {experienceList.map((experience, index) => (

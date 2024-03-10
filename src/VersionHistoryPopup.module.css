@@ -1,0 +1,151 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+/* Popup container */
+.versionHistoryPopupContainer {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    z-index: 3;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Blurred background */
+.overlay {
+    position: fixed; 
+    display: block; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(172, 182, 179, 0.15); 
+    backdrop-filter: blur(1px);
+    z-index: 2; 
+    cursor: pointer;
+}
+
+/* Wrapper for popup and overlay */
+.popupAndOverlayContainer.closed {
+    display: none;
+}
+
+/* Close Icon */
+.closeIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+/* Titles in Popup */
+.versionHistoryPopupContainer h1 {
+    color: var(--text-color);
+    font-family: ABeeZee;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Version History side */
+.versionContainer {
+    width: 45%;
+}
+
+/* Tags side */
+.tagsContainer {
+    width: 40%;
+}
+
+.tagsContainer ul {
+    list-style-type: none;
+    padding: 0px;
+    color: var(--text-color);
+    font-family: ABeeZee;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Tag and checkbox */
+.tagsContainer label {
+    display: flex;
+    width: auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* Tag text */
+.tagsContainer label p {
+    margin-left: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Custom unchecked checkbox */
+.tagsContainer input {
+    cursor: pointer;
+    appearance: none; /* hide default checkbox */
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+/* Custom checkbox on hover */
+.tagsContainer input:hover {
+    background-color: #ccc;
+}
+
+/* Custom checkbox when checked */
+.tagsContainer input:checked {
+    background-color: var(--pastel-purple);
+    border-color: var(--purple-blue);
+}
+
+/* Checkmark style */
+.tagsContainer input:checked:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid var(--purple-blue);
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+}
+
+/* Save button */
+.saveIcon {
+    color: var(--dark-purple);
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+/* Purple text for current bullet point */
+.highlightCurrentBullet {
+    color: var(--dark-purple);
+}

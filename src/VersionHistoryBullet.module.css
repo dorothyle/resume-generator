@@ -1,0 +1,29 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+.versionBulletContainer {
+    border: 1.5px solid var(--gray);
+    border-radius: 10px;
+    background-color: white;
+    color: var(--text-color);
+    font-family: ABeeZee;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 18rem;
+    margin-bottom: 0.7rem;
+    cursor: pointer;
+}
+
+.versionBulletContainer.selected {
+    border: 2.5px solid var(--purple-blue);
+    border-radius: 10px;
+    background-color: var(--pastel-purple);
+}
+
+.versionBulletContainer p {
+    margin-right: 1rem;
+    margin-left: -0.5rem;
+}
