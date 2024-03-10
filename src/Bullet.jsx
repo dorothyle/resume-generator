@@ -26,7 +26,8 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
 
   const togglePopup = () => {
     setAppear(true);
-  }
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
 
   return (
     <div>
