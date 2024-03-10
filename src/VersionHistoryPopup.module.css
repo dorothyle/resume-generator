@@ -43,8 +43,8 @@
 /* Close Icon */
 .closeIcon {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 1rem;
+    right: 1rem;
     cursor: pointer;
 }
 
