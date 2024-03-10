@@ -138,10 +138,11 @@
 .saveIcon {
     color: var(--dark-purple);
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: 1rem;
+    right: 1rem;
     width: 2rem;
     height: 2rem;
+    cursor: pointer;
 }
 
 /* Purple text for current bullet point */
