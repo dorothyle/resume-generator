@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import ExperienceForm from "./ExperienceForm";
 import Preview from "./Preview";
-import Dummy from "./Dummy";
 import "./App.css";
 
 let nextId = 1;
@@ -16,7 +15,7 @@ function App() {
     startDate: "",
     endDate: "",
     location: "",
-    bulletPoints: [{ id: 0, text: '', versionHistory: ["first version", "second version"] }],
+    bulletPoints: [{ id: 0, text: '', versionHistory: [] }],
     isOpen: true
   }]);
 
@@ -37,9 +36,7 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      {/* <Dummy /> */}
-      
+    <div className="app-container">      
       <Preview experienceList={experienceList} />
       <div className="formContainer">
         {experienceList.map((experience, index) => (
