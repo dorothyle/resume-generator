@@ -1,6 +1,7 @@
 @import "colors.css";
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
 
+/* Popup container */
 .versionHistoryPopupContainer {
     position: fixed;
     top: 50%;
@@ -18,6 +19,7 @@
     justify-content: space-around;
 }
 
+/* Blurred background */
 .overlay {
     position: fixed; 
     display: block; 
@@ -33,10 +35,12 @@
     cursor: pointer;
 }
 
+/* Wrapper for popup and overlay */
 .popupAndOverlayContainer.closed {
     display: none;
 }
 
+/* Close Icon */
 .closeIcon {
     position: absolute;
     top: 0px;
@@ -44,6 +48,7 @@
     cursor: pointer;
 }
 
+/* Titles in Popup */
 .versionHistoryPopupContainer h1 {
     color: var(--text-color);
     font-family: ABeeZee;
@@ -53,10 +58,12 @@
     line-height: normal;
 }
 
+/* Version History side */
 .versionContainer {
     width: 45%;
 }
 
+/* Tags side */
 .tagsContainer {
     width: 40%;
 }

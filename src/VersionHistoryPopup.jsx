@@ -92,7 +92,10 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                 ></Icon>
                 <div className={style.versionContainer}>
                     <h1>Version History</h1>
-                    <p>Select to replace <span className={style.highlightCurrentBullet}>"{experienceList[experienceIndex].bulletPoints[bulletIndex].text}"</span></p>
+                    { experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.length === 0 ?
+                        <p>Past versions of <span className={style.highlightCurrentBullet}>"{experienceList[experienceIndex].bulletPoints[bulletIndex].text}"</span> go here</p>
+                        : <p>Select to replace <span className={style.highlightCurrentBullet}>"{experienceList[experienceIndex].bulletPoints[bulletIndex].text}"</span></p>
+                    }
                     {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                         return (
                             <div onClick={() => setVersionIndex(index)}>
