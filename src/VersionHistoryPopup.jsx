@@ -12,6 +12,13 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
         setAppear(false);
     }
 
+    // Updates the current bullet point to the selected version
+    const selectVersion = (selectedVersion) => {
+        const copy = [...experienceList];
+        copy[experienceIndex].bulletPoints[bulletIndex].text = selectedVersion;
+        setExperienceList(copy);
+    }
+  
     const generateBullet = async () => {
         console.log(experienceList[experienceIndex]);
         const currentBullet = experienceList[experienceIndex].bulletPoints[bulletIndex].text;
@@ -72,12 +79,11 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                     <h1>Version History</h1>
                     {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                         return (
-                            <VersionHistoryBullet key={index} text={version}/>
+                            <div onClick={() => selectVersion(version)}>
+                                <VersionHistoryBullet key={index} text={version} />
+                            </div>
                         )
                     })}
-                    {/* Past versions go here */}
-                    {/* <VersionHistoryBullet isSelected={true} />
-                    <VersionHistoryBullet isSelected={false} /> */}
                 </div>
 
                 <div className={style.tagsContainer}>
