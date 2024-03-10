@@ -11,9 +11,17 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
     const [selectedVersion, setSelectedVersion] = useState("");
     const [versionIndex, setVersionIndex] = useState(-1);
 
+    // Clears tags when exit popup
+    const clearTags = () => {
+        const newIsTagSelected = Array(isTagSelected.length).fill(false);
+        setIsTagSelected(newIsTagSelected);
+    }
+
+    // Closes popup
     const closePopup = () => {
         setAppear(false);
         setVersionIndex(-1);
+        clearTags();
     }
 
     // Updates the current bullet point to the selected version
@@ -23,6 +31,7 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
         setExperienceList(copy);
         setAppear(false);
         setVersionIndex(-1);
+        clearTags();
     }
   
     const generateBullet = async () => {
@@ -101,7 +110,7 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                             return (
                                 <li key={index}>
                                     <label>
-                                        <input type="checkbox" onClick={() => changeTagSelection(index)} />
+                                        <input type="checkbox" checked={isTagSelected[index]} onClick={() => changeTagSelection(index)} />
                                         <p>{tag}</p>
                                     </label>
                                 </li>
