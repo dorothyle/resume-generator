@@ -5,18 +5,27 @@ import VersionHistoryBullet from "./VersionHistoryBullet";
 
 const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceList, experienceIndex, bulletIndex }) => {
     const xIcon = "ph:x-bold";
+    const saveIcon = "mingcute:check-circle-fill";
     const [tags, setTags] = useState(["Shorten", "Expand", "Rephrase", "Impact-Focused", "More Specific", "Simplify", "More Professional"]);
-    const [isTagSelected, setIsTagSelected] = useState([false, false, false, false, false, false, false])
+    const [isTagSelected, setIsTagSelected] = useState([false, false, false, false, false, false, false]);
+    const [selectedVersion, setSelectedVersion] = useState("");
 
     const closePopup = () => {
         setAppear(false);
+        // TODO: set selectedVersion back to current bullet point
+    }
+
+    // Changes a selectedVersion variable
+    const changeSelectedVersion = (version) => {
+        setSelectedVersion(version);
     }
 
     // Updates the current bullet point to the selected version
-    const selectVersion = (selectedVersion) => {
+    const saveVersion = () => {
         const copy = [...experienceList];
         copy[experienceIndex].bulletPoints[bulletIndex].text = selectedVersion;
         setExperienceList(copy);
+        setAppear(false);
     }
   
     const generateBullet = async () => {
@@ -79,7 +88,7 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                     <h1>Version History</h1>
                     {experienceList[experienceIndex].bulletPoints[bulletIndex].versionHistory.map((version, index) => {
                         return (
-                            <div onClick={() => selectVersion(version)}>
+                            <div onClick={() => setSelectedVersion(version)}>
                                 <VersionHistoryBullet key={index} text={version} />
                             </div>
                         )
@@ -103,6 +112,12 @@ const VersionHistoryPopup = ({ appear, setAppear, experienceList, setExperienceL
                     </ul>
                     <button onClick={generateBullet}>Generate</button>
                 </div>
+
+                <Icon
+                    className={style.saveIcon}
+                    icon={saveIcon}
+                    onClick={saveVersion}
+                ></Icon>
             </div>
         </div>
     )

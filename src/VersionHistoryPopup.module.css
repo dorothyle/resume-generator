@@ -13,6 +13,9 @@
     justify-content: space-around;
     background-color: white;
     z-index: 3;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
 }
 
 .overlay {
@@ -48,6 +51,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.versionContainer {
+    width: 45%;
 }
 
 .tagsContainer {
@@ -118,4 +125,13 @@
     border: solid var(--purple-blue);
     border-width: 0 1px 1px 0;
     transform: rotate(45deg);
+}
+
+.saveIcon {
+    color: var(--dark-purple);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 2rem;
+    height: 2rem;
 }
