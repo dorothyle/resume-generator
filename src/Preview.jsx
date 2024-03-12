@@ -19,6 +19,12 @@ const Preview = ({ experienceList }) => {
     let resumeString = "";
     for (let exp = 0; exp < experienceList.length; exp++) {
       let [startDateStr, endDateStr] = formatDates(experienceList[exp]);
+      if (experienceList[exp].startDate === '') {
+        startDateStr = 'Start Date';
+      }
+      if (experienceList[exp].endDate === '') {
+        endDateStr = 'End Date';
+      }
       resumeString += experienceList[exp].role + "\n" + experienceList[exp].company + "\n" + startDateStr + " - " + endDateStr + "\n" + experienceList[exp].location + "\n";
       for (let bullet = 0; bullet < experienceList[exp].bulletPoints.length; bullet++) {
         resumeString += "• " + experienceList[exp].bulletPoints[bullet].text + "\n";
