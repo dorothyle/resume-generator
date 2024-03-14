@@ -8,6 +8,7 @@ let nextId = 1;
 
 function App() {
   const plusIcon = "ic:round-plus";
+  const exportIcon = "ion:download-outline";
   const [experienceList, setExperienceList] = useState([{
     id: 0,
     role: "",
@@ -36,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className="app-container">      
+    <div className="app-container">   
       <Preview experienceList={experienceList} />
       <div className="formContainer">
         {experienceList.map((experience, index) => (
@@ -47,7 +48,7 @@ function App() {
           <Icon icon={plusIcon} id="plusIcon" />
           <button onClick={() => handleAddRole()}>Add more roles</button>
         </div>
-      </div>
+     </div>
     </div>
   );
 }

@@ -64,7 +64,7 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
           />
           <Icon
             icon={trashIcon}
-            style={{ color: "5B7FFF", width: "1.5625rem", height: "1.5625rem" }}
+            style={{ color: "5B7FFF", width: "1.5625rem", height: "1.5625rem", cursor: 'pointer' }}
             onClick={() => handleDeleteRole(index)}
           />
         </div>
