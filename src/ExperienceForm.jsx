@@ -9,6 +9,7 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
   const arrow = "iconamoon:arrow-down-2-light";
   const trashIcon = "ant-design:delete-outlined";
   const experienceData = experienceList[index];
+  const [currentWork, setCurrentWork] = useState(false);
 
   const handleAddInput = () => {
     let newExperienceList = [...experienceList];
@@ -42,6 +43,17 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
     });
     newExperienceList[index].isOpen = !newExperienceList[index].isOpen;
     setExperienceList(newExperienceList);
+  }
+  const togglePresentEndDate = () => {
+    let newExperienceList = [...experienceList];
+    if (currentWork === true) {
+      newExperienceList[index].endDate = "";
+    }
+    else {
+      newExperienceList[index].endDate = "Present";
+    }
+    setExperienceList(newExperienceList);
+    setCurrentWork(!currentWork);
   }
 
   return (
@@ -109,6 +121,15 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
               value={experienceList[index].endDate}
               onChange={event => handleChange(event, index)}
               placeholder="Enter end date here"
+              disabled={experienceList[index].endDate === "Present"}
+            />
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="endDate"
+              value={experienceList[index].endDate}
+              onClick={togglePresentEndDate}
             />
           </label>
           <label id={style.locationLabel}>
