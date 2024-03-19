@@ -99,6 +99,28 @@
   flex-shrink: 0;
 }
 
+/* End Date Inputs */
+.endDateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.endDateContainer label {
+  margin-bottom: 0rem;
+}
+
+/* Checkbox input for current work */
+.presentCheckbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.presentCheckbox input {
+  width: 1rem;
+  margin-right: 0.4rem;
+}
+
 #locationLabel {
   width: 100%;
 }

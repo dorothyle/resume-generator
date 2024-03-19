@@ -7,11 +7,20 @@ const Preview = ({ experienceList }) => {
   const exportIcon = "ion:download-outline";
 
   const formatDates = (experience) => {
-    let startDate = new Date(experience.startDate.split("-"));
-    let endDate = new Date(experience.endDate.split("-"));
     let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
+    let startDate = new Date(experience.startDate.split("-"));
     startDate = `${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
-    endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
+    let endDate;
+    if (experience.endDate !== "Present") {
+      endDate = new Date(experience.endDate.split("-"));
+      endDate = `${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
+    }
+    else {
+      endDate = "Present";
+    }
+
+    console.log("start date: " + startDate);
+    console.log("end date: " + endDate);
     return [startDate, endDate];
   };
 
