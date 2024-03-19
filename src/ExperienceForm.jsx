@@ -113,25 +113,28 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
               placeholder="Enter start date here"
             />
           </label>
-          <label>
-            <h2>End Date</h2>
-            <input
-              type="date"
-              name="endDate"
-              value={experienceList[index].endDate}
-              onChange={event => handleChange(event, index)}
-              placeholder="Enter end date here"
-              disabled={experienceList[index].endDate === "Present"}
-            />
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="endDate"
-              value={experienceList[index].endDate}
-              onClick={togglePresentEndDate}
-            />
-          </label>
+          <div className={style.endDateContainer}>
+            <label>
+              <h2>End Date</h2>
+              <input
+                type="date"
+                name="endDate"
+                value={experienceList[index].endDate}
+                onChange={event => handleChange(event, index)}
+                placeholder="Enter end date here"
+                disabled={experienceList[index].endDate === "Present"}
+              />
+            </label>
+            <label className={style.presentCheckbox}>
+              <input
+                type="checkbox"
+                name="endDate"
+                value={experienceList[index].endDate}
+                onClick={togglePresentEndDate}
+              />
+              <p>I currently work here</p>
+            </label>
+          </div>
           <label id={style.locationLabel}>
             <h2>Location</h2>
             <input
