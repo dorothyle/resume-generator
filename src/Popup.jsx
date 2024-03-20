@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import style from "./Popup.module.css";
 
-const Popup = ({ experienceList, setExperienceList, experienceIndex, param, appear, setAppear, title, message, buttonText, buttonFunc }) => {
+const Popup = ({ appear, setAppear, title, message, buttonText, buttonFunc, param}) => {
     // Closes popup
     const closePopup = () => {
         setAppear(false);
