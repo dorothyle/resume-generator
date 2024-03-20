@@ -8,12 +8,17 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
   const penIcon = 'fluent:pen-sparkle-32-regular';
   const trashIcon = 'ant-design:delete-outlined';
   const [appear, setAppear] = useState(false);
+  const [emptyBullet, setEmptyBullet] = useState(false);
 
   const handleChange = (event, index) => {
     let { name, value } = event.target;
     let onChangeValue = [...experienceList];
     onChangeValue[experienceIndex].bulletPoints[index][name] = value;
     setExperienceList(onChangeValue);
+    // Removes error message when bullet point is not empty
+    if (value != "" && value.trim() != "") {
+      setEmptyBullet(false);
+    }
   };
 
   const handleDeleteInput = index => {
@@ -25,8 +30,17 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
   };
 
   const togglePopup = () => {
-    setAppear(true);
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    let currentBullet = experienceList[experienceIndex].bulletPoints[bulletIndex].text;
+    // Display error message when trying to generate and given empty bullet point
+    if (currentBullet === "" || currentBullet.trim() === "") {
+      setEmptyBullet(true);
+    }
+    // If not empty, allows generation
+    else {
+      setEmptyBullet(false);
+      setAppear(true);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
   };
 
   return (
@@ -51,6 +65,7 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
           ></Icon>
         </span>
       </div>
+      <p className={`${style.empytBulletErrorMessage} ${ emptyBullet ? style.show : "" }`}>Please enter a bullet point.</p>
       <VersionHistoryPopup appear={appear} setAppear={setAppear} experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex}/>
     </div>
   );
