@@ -19,8 +19,8 @@ const Popup = ({ appear, setAppear, title, message, buttonText, buttonFunc, para
                 <h1>{title}</h1>
                 <p>{message}</p>
                 <div className={style.popupButtonsContainer}>
-                    <button id={style.cancelButton} onClick={closePopup}>Cancel</button>
-                    <button id={style.confirmButton} onClick={triggerButtonFunction}>{buttonText}</button>
+                    <button className={style.cancelButton} onClick={closePopup}>Cancel</button>
+                    <button className={style.confirmButton} onClick={triggerButtonFunction}>{buttonText}</button>
                 </div>
             </div>
         </div>

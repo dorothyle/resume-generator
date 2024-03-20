@@ -49,15 +49,31 @@
 }
 
 .popupButtonsContainer button {
+    display: block;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    font-family: ABeeZee;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     width: auto;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding-right: 2rem;
     padding-left: 2rem;
+    cursor: pointer;
 }
 
-#cancelButton {
-    background-color: var(--gray);
+.cancelButton {
+    background-color: var(--gray) !important;
 }
 
-#confirmButton {
-    background-color: var(--hot-pink);
+.confirmButton {
+    background-color: var(--hot-pink) !important;
 }
