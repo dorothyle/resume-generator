@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import style from "./ExperienceForm.module.css";
 import Bullet from "./Bullet";
+import Popup from './Popup';
 
 let nextId = 1;
 
@@ -10,6 +11,8 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
   const trashIcon = "ant-design:delete-outlined";
   const experienceData = experienceList[index];
   const [currentWork, setCurrentWork] = useState(false);
+  const [deletePopupAppear, setDeletePopupAppear] = useState(false);
+  const deleteRoleMessage = "Are you sure you want to delete this role? This action cannot be undone."
 
   const handleAddInput = () => {
     let newExperienceList = [...experienceList];
@@ -27,6 +30,10 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
     e.preventDefault();
     console.log("Role submitted", roleData);
   };
+  const promptRoleDeletion = () => {
+    setDeletePopupAppear(true);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
   const handleDeleteRole = index => {
     const newExperienceList = [...experienceList];
     newExperienceList.splice(index, 1);
@@ -77,7 +84,8 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
           <Icon
             icon={trashIcon}
             style={{ color: "5B7FFF", width: "1.5625rem", height: "1.5625rem", cursor: 'pointer' }}
-            onClick={() => handleDeleteRole(index)}
+            // onClick={() => handleDeleteRole(index)}
+            onClick={promptRoleDeletion}
           />
         </div>
       </div>
@@ -159,6 +167,7 @@ const ExperienceForm = ({ index, experienceList, setExperienceList }) => {
         ))}
         <button onClick={() => handleAddInput()}>Add Bullet</button>
       </div>
+      <Popup appear={deletePopupAppear} setAppear={setDeletePopupAppear} title={"Confirm Deletion"} message={deleteRoleMessage} buttonText={"Delete"} buttonFunc={handleDeleteRole} param={index} />
     </section>
   );
 };
