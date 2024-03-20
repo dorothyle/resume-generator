@@ -1,0 +1,63 @@
+@import "colors.css";
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Khula:wght@300;400;600;700;800&display=swap");
+
+/* Popup container */
+.popupContainer {
+    position: absolute;
+    top: 10rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 3;
+    padding: 2rem;
+}
+
+.popupContainer h1 {
+    margin-bottom: 0rem;
+}
+
+/* Blurred background */
+.overlay {
+    position: fixed; 
+    display: block; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(172, 182, 179, 0.15); 
+    backdrop-filter: blur(1px);
+    z-index: 2; 
+    cursor: pointer;
+}
+
+/* Wrapper for popup and overlay */
+.popupAndOverlayContainer.closed {
+    display: none;
+}
+
+/* Popup Buttons */
+.popupButtonsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.popupButtonsContainer button {
+    width: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+#cancelButton {
+    background-color: var(--gray);
+}
+
+#confirmButton {
+    background-color: var(--hot-pink);
+}

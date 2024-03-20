@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import style from './Bullet.module.css';
 import VersionHistoryPopup from "./VersionHistoryPopup";
+import Popup from './Popup';
 
 const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceList }) => {
   const bulletPointIcon = 'material-symbols:circle-outline';
   const penIcon = 'fluent:pen-sparkle-32-regular';
   const trashIcon = 'ant-design:delete-outlined';
   const [appear, setAppear] = useState(false);
+  const [deletePopupAppear, setDeletePopupAppear] = useState(false);
   const [emptyBullet, setEmptyBullet] = useState(false);
+  const deleteBulletMessage = "Are you sure you want to delete this bullet point and its version history? This action cannot be undone.";
 
   const handleChange = (event, index) => {
     let { name, value } = event.target;
@@ -20,6 +23,11 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
       setEmptyBullet(false);
     }
   };
+
+  const promptBulletDeletion = () => {
+    setDeletePopupAppear(true);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 
   const handleDeleteInput = index => {
     const newExperienceList = [...experienceList];
@@ -61,12 +69,13 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
           <Icon
             icon={trashIcon}
             style={{ color: '#5B7FFF', width: '1.63894rem', height: '1.8125rem' }}
-            onClick={() => handleDeleteInput(bulletIndex)}
+            onClick={promptBulletDeletion}
           ></Icon>
         </span>
       </div>
       <p className={`${style.empytBulletErrorMessage} ${ emptyBullet ? style.show : "" }`}>Please enter a bullet point.</p>
       <VersionHistoryPopup appear={appear} setAppear={setAppear} experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex}/>
+      <Popup experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} param={bulletIndex} appear={deletePopupAppear} setAppear={setDeletePopupAppear} title={"Confirm Deletion"} message={deleteBulletMessage} buttonText={"Delete"} buttonFunc={handleDeleteInput} />
     </div>
   );
 };
