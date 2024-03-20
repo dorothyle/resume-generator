@@ -2,10 +2,14 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import style from "./Popup.module.css";
 
-const Popup = ({ experienceList, setExperienceList, experienceIndex, bulletIndex, appear, setAppear, title, message, buttonText }) => {
+const Popup = ({ experienceList, setExperienceList, experienceIndex, param, appear, setAppear, title, message, buttonText, buttonFunc }) => {
     // Closes popup
     const closePopup = () => {
         setAppear(false);
+    }
+    
+    const triggerButtonFunction = () => {
+        buttonFunc(param);
     }
 
     return (
@@ -15,8 +19,8 @@ const Popup = ({ experienceList, setExperienceList, experienceIndex, bulletIndex
                 <h1>{title}</h1>
                 <p>{message}</p>
                 <div className={style.popupButtonsContainer}>
-                    <button>Cancel</button>
-                    <button>{buttonText}</button>
+                    <button onClick={closePopup}>Cancel</button>
+                    <button onClick={triggerButtonFunction}>{buttonText}</button>
                 </div>
             </div>
         </div>

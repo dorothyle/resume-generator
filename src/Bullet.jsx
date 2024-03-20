@@ -26,6 +26,7 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
 
   const promptBulletDeletion = () => {
     setDeletePopupAppear(true);
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   const handleDeleteInput = index => {
@@ -74,7 +75,7 @@ const Bullet = ({ experienceIndex, bulletIndex, experienceList, setExperienceLis
       </div>
       <p className={`${style.empytBulletErrorMessage} ${ emptyBullet ? style.show : "" }`}>Please enter a bullet point.</p>
       <VersionHistoryPopup appear={appear} setAppear={setAppear} experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex}/>
-      <Popup experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} bulletIndex={bulletIndex} appear={deletePopupAppear} setAppear={setDeletePopupAppear} title={"Confirm Deletion"} message={deleteBulletMessage} buttonText={"Delete"} />
+      <Popup experienceList={experienceList} setExperienceList={setExperienceList} experienceIndex={experienceIndex} param={bulletIndex} appear={deletePopupAppear} setAppear={setDeletePopupAppear} title={"Confirm Deletion"} message={deleteBulletMessage} buttonText={"Delete"} buttonFunc={handleDeleteInput} />
     </div>
   );
 };
