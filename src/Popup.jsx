@@ -19,8 +19,8 @@ const Popup = ({ experienceList, setExperienceList, experienceIndex, param, appe
                 <h1>{title}</h1>
                 <p>{message}</p>
                 <div className={style.popupButtonsContainer}>
-                    <button onClick={closePopup}>Cancel</button>
-                    <button onClick={triggerButtonFunction}>{buttonText}</button>
+                    <button id={style.cancelButton} onClick={closePopup}>Cancel</button>
+                    <button id={style.confirmButton} onClick={triggerButtonFunction}>{buttonText}</button>
                 </div>
             </div>
         </div>

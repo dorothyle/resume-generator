@@ -4,7 +4,7 @@
 /* Popup container */
 .popupContainer {
     position: absolute;
-    top: 5rem;
+    top: 10rem;
     left: 50%;
     transform: translate(-50%, 0%);
     border: 2px solid var(--gray);
@@ -15,6 +15,10 @@
     background-color: white;
     z-index: 3;
     padding: 2rem;
+}
+
+.popupContainer h1 {
+    margin-bottom: 0rem;
 }
 
 /* Blurred background */
@@ -38,7 +42,22 @@
     display: none;
 }
 
+/* Popup Buttons */
 .popupButtonsContainer {
     display: flex;
     flex-direction: row;
+}
+
+.popupButtonsContainer button {
+    width: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+#cancelButton {
+    background-color: var(--gray);
+}
+
+#confirmButton {
+    background-color: var(--hot-pink);
 }
