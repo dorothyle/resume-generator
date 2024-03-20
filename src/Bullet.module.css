@@ -30,3 +30,14 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.empytBulletErrorMessage.show {
+  color: var(--hot-pink);
+  display: block;
+  margin-left: 2.2rem;
+  margin-top: -0.5rem;
+}
+
+.empytBulletErrorMessage {
+  display: none;
+}
